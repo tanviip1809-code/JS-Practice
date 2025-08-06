@@ -25,7 +25,7 @@ console.log(JsUser.email); //dot notation
 //even if we have space key, we can't use dot notation method
 
 console.log(JsUser["email"]); //Bracket Notation
-//this is for hyphen, space, number
+//this is for hyphen, space, numbers
 //Why should we use above method for accessing object value is wxplained below
 
 //as a example of full name key - that is defined in a string and space in-between so we can't access string value by JsUser.fullName it will give error.
