@@ -70,3 +70,31 @@ console.log(Object.values(tinderUser)); //returns values
 console.log(Object.entries(tinderUser)); //give every value key as a array
 
 console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+
+//Destructuring
+
+const course = {
+    coursename: "JS in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+}
+
+//course.courseInstructor
+
+// const {courseInstructor} = course
+// console.log(courseInstructor); //now whenever you want to print courseinstructor, you just have to log it out courseinstructor
+
+const {courseInstructor: instructor} = course
+console.log(instructor); //here we have given a short name to the courseInstructor
+
+// {
+//     "name": "tanu",
+//     "coursename": "Js in hindi",
+//     "price": "free"
+// }
+
+[
+    {},
+    {},
+    {}
+]
