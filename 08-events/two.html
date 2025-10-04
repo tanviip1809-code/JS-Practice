@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //Method 1
+    setTimeout(function(){
+        console.log("Tanvi")
+    },2000)
+
+    //Method 2
+    const text = function(){
+        console.log("Example of setTimeout")
+    }
+    setTimeout(text, 5000)
+
+    //Changing of innerText by setTimeout
+    const changeText = function(){
+        document.querySelector('h1').innerText = "Best JS seris"
+    }
+    const changeMe = setTimeout(changeText, 3000)
+
+    //Stoping setTimeout by clearTimeout
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED")
+    })
+</script>
+</html>
