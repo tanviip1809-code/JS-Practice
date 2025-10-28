@@ -17,7 +17,7 @@ const keyTable = document.getElementById('keyData');
 window.addEventListener('keydown', function (e) {
     const row = document.createElement('tr')
     row.innerHTML = `
-    <td>${e.key}</td>
+    <td>${e.key == ' ' ? 'Space' : e.key}</td>
     <td>${e.keyCode}</td>
     <td>${e.code}</td>
     `;
