@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>API States Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  h2 {
+    color: #333;
+  }
+  #stateBox {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px 40px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  #btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  #btn:hover {
+    background: #0056b3;
+  }
+  .loading {
+    color: #ff9800;
+  }
+  .done {
+    color: #4caf50;
+  }
+  .error {
+    color: #f44336;
+  }
+</style>
+</head>
+<body>
+
+<h2>API ReadyState Demo (0 → 4)</h2>
+<button id="btn">Start API Request</button>
+<div id="stateBox">Click the button to begin</div>
+
+<script>
+  document.getElementById('btn').addEventListener('click', function() {
+    const xhr = new XMLHttpRequest();
+    const box = document.getElementById('stateBox');
+    const url = 'https://api.github.com/users/octocat';
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 0) box.innerHTML = "🟢 (0) UNSENT — Request not opened yet";
+      if (xhr.readyState === 1) box.innerHTML = "🟡 (1) OPENED — Request initialized";
+      if (xhr.readyState === 2) box.innerHTML = "🟣 (2) HEADERS_RECEIVED — Server responded";
+      if (xhr.readyState === 3) box.innerHTML = "<span class='loading'>🟠 (3) LOADING — Receiving data...</span>";
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          box.innerHTML = "<span class='done'>✅ (4) DONE — Request complete!</span><br><br>";
+          const data = JSON.parse(xhr.responseText);
+          box.innerHTML += `<img src="${data.avatar_url}" width="100"><br>Followers: ${data.followers}`;
+        } else {
+          box.innerHTML = "<span class='error'>❌ (4) DONE — Error fetching data</span>";
+        }
+      }
+    };
+
+    xhr.open('GET', url);
+    xhr.send();
+  });
+</script>
+
+</body>
+</html>
