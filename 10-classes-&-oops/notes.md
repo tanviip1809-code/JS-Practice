@@ -11,14 +11,14 @@
 # parts of OOP
 Object literal
 
--Constructor function
--Prototypes
--Classes
--Instances(new, this)
+- Constructor function
+- Prototypes
+- Classes
+- Instances(new, this)
 
 # 4 Pillars
 
--Abstraction
--Encapsulation
--Inheritance
--Polymorphism
+- Abstraction
+- Encapsulation
+- Inheritance
+- Polymorphism
